@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+	<testcase casename="Login">
+		<password>password</password>
+		<invalidemail>dinezh1@gmail</invalidemail>
+		<invalidpassword>password1234</invalidpassword>
+		<unregisterdsuser>dinezh1541654@gmail.com</unregisterdsuser>
+	</testcase>
+</testcases>

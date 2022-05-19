@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcases>
+	<testcase casename="CreateAccount">
+		<emailid>dinezh@xyz</emailid>
+		<registeredemail>xyz@gmail.com</registeredemail>
+	</testcase>
+
+	<testcase casename="Assertions">
+		<signpageassertaion>AUTHENTICATION</signpageassertaion>
+	</testcase>
+	
+	<testcase casename="CreateAccountForm">
+		<firstname>first</firstname>
+		<lastName>last</lastName>
+		<password>password</password>
+		<address>address</address>
+		<zipcodeinvalid>address</zipcodeinvalid>
+		<homephoneinvalid>address</homephoneinvalid>
+		<mobilephoneinvalid>address</mobilephoneinvalid>
+		<passwordinvalid>ab</passwordinvalid>
+		<zipcode>12345</zipcode>
+		<dobyear>1995  </dobyear>
+		<dobmonth>March </dobmonth>
+		<dobday>12  </dobday>
+		<city>Hyd</city>
+		<state>Iowa</state>
+		<mobilephone>12345</mobilephone>
+		<addressalias>TS</addressalias>
+	</testcase>
+</testcases>
