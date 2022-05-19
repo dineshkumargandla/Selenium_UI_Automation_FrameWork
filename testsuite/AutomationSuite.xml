@@ -4,25 +4,24 @@
 	<test name="Registration">
 		<classes>
 			<class
-				name="com.automation.interview.test.registration.RegistrationTest" />
+				name="com.ui.automation.test.registration.RegistrationTest" />
 		</classes>
 	</test>
 	<test name="SignIN">
 		<classes>
-			<class name="com.automation.interview.test.SignIn.SignInTest" />
+			<class name="com.ui.automation.test.SignIn.SignInTest" />
 		</classes>
 	</test>
 	<test name="ShoppingFlowTest">
 		<classes>
 			<class
-				name="com.automation.interview.test.shoppingTest.shoppingFlowTest" />
+				name="com.ui.automation.test.shoppingTest.shoppingFlowTest" />
 		</classes>
 	</test>
 	<test name="ContactUs">
 		<classes>
 			<class
-				name="com.automation.interview.test.ContactUs.ContactUsTest" />
+				name="com.ui.automation.test.ContactUs.ContactUsTest" />
 		</classes>
 	</test>
 </suite>
-    
