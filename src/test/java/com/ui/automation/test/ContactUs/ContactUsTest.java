@@ -8,9 +8,9 @@ import org.testng.annotations.Test;
 
 import com.ui.automation.ReadXML.DataBean;
 import com.ui.automation.ReadXML.ReadXmlData;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
-public class ContactUsTest extends Configaration{
+public class ContactUsTest extends Configuration {
 	private static final String ContactUsDataFile = "ContactUs.xml";
 	private DataBean emailId;
 	private DataBean orderReference;

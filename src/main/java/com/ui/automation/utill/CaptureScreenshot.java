@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 public class CaptureScreenshot {
 	
 	public static void capture(String filepath) throws IOException, InterruptedException {
-		capture(Configaration.getDriver(), filepath);
+		capture(Configuration.getDriver(), filepath);
 	}
 	
 	public static void capture(WebDriver driver, String filepath) {

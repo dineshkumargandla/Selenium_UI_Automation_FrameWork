@@ -17,7 +17,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
 public class ReadXmlData {
 	HashMap<String, CaseObject> casesInput = new HashMap<String, CaseObject>();
@@ -47,7 +47,7 @@ public class ReadXmlData {
 
 	private HashMap<String, CaseObject> getData() {
 		try {
-			StringBuilder sb = new StringBuilder(Configaration.getDataDir()).append(File.separatorChar).append(this.filename);
+			StringBuilder sb = new StringBuilder(Configuration.getDataDir()).append(File.separatorChar).append(this.filename);
 			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(sb.toString()), "UTF-8"));
 			InputSource is = new InputSource(br);
 			is.setEncoding("UTF-8");

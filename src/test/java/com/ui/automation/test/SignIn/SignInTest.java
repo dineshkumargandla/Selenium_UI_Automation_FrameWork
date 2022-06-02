@@ -12,11 +12,11 @@ import com.ui.automation.ReadXML.DataBean;
 import com.ui.automation.ReadXML.ReadXmlData;
 import com.ui.automation.page.registration.CreateAccountPage;
 import com.ui.automation.page.registration.RegistrationPage;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
 public class SignInTest {
 
-	public class RegistrationTest extends Configaration {
+	public class RegistrationTest extends Configuration {
 
 		private static final String LoginDataFile = "SignInData.xml";
 		private DataBean passsword;
@@ -62,7 +62,7 @@ public class SignInTest {
 
 			// Click with password is Empty
 
-			signInPage.enterEmail(Configaration.getUserName());
+			signInPage.enterEmail(Configuration.getUserName());
 			signInPage.clickLoginButton();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			Assert.assertTrue(signInPage.passwordRequriedErrorMassage().isDisplayed());
@@ -85,7 +85,7 @@ public class SignInTest {
 
 			// Enter Invalid Password
 
-			signInPage.enterEmail(Configaration.getUserName());
+			signInPage.enterEmail(Configuration.getUserName());
 			signInPage.enterPassword(invalidPassword.getValue());
 			signInPage.clickLoginButton();
 			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -106,7 +106,7 @@ public class SignInTest {
 
 		@Test(priority = 6)
 		private void validateSignInPageWithValidCredentails() throws InterruptedException {
-			signInPage.enterEmail(Configaration.getUserName());
+			signInPage.enterEmail(Configuration.getUserName());
 			signInPage.enterPassword(passsword.getValue());
 			signInPage.clickLoginButton();
 			Assert.assertTrue(signInPage.validateSucessLogin().isDisplayed());

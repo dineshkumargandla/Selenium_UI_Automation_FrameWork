@@ -6,9 +6,9 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com.ui.automation.utill.AutomationBase;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
-public class contactUsPage extends Configaration{
+public class contactUsPage extends Configuration {
 
 	public contactUsPage() throws Exception {
 		super();

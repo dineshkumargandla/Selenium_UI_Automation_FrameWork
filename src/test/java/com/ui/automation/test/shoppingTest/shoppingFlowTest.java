@@ -15,9 +15,9 @@ import com.ui.automation.ReadXML.DataBean;
 import com.ui.automation.ReadXML.ReadXmlData;
 import com.ui.automation.page.registration.RegistrationPage;
 import com.ui.automation.page.shoppingPage.selectClothes;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
-public class shoppingFlowTest extends Configaration {
+public class shoppingFlowTest extends Configuration {
 
 	private static final String LoginDataFile = "SignInData.xml";
 	private static final String RegisterDataFile = "RegisterAUser.xml";
@@ -66,7 +66,7 @@ public class shoppingFlowTest extends Configaration {
 	@Test(priority = 1)
 	public void selectClothesFlow() {
 		rp.signInButton();
-		signInPage.enterEmail(Configaration.getUserName());
+		signInPage.enterEmail(Configuration.getUserName());
 		signInPage.enterPassword(passsword.getValue());
 		signInPage.clickLoginButton();
 		Assert.assertTrue(signInPage.validateSucessLogin().isDisplayed());

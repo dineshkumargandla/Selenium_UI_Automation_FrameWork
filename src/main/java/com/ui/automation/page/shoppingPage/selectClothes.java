@@ -1,12 +1,12 @@
 package com.ui.automation.page.shoppingPage;
 
 import com.ui.automation.utill.AutomationBase;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class selectClothes extends Configaration {
+public class selectClothes extends Configuration {
 
 	public selectClothes() throws Exception {
 		super();

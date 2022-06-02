@@ -1,15 +1,6 @@
 package com.ui.automation.utill;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.*;
 import java.util.Properties;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -22,101 +13,84 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeSuite;
 
-public class Configaration {
+public class Configuration {
+
 
 	private static final String filepath = "resources/config.properties";
-	private static HashMap<String, String> propertyMap;
-	private static PrintStream out;
-	private static String OS = System.getProperty("os.name").toLowerCase();
-	protected static String baseCommand = "";
+
 	public static WebDriver driver;
+	static InputStream input;
+	static Properties properties =  loadProperties(filepath);
 
-	public static String getPropValue(String name) {
-		if (null == propertyMap) {
-			init();
+	private static Properties loadProperties(String filepath) {
+		try {
+			input = new FileInputStream(filepath);
+			properties = new Properties();
+			properties.load(input);
+			return properties;
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		String value = propertyMap.get(name);
-		if (null == value || value.equals("")) {
-			Log.error(name + " is not defined in config.properties file.");
-			return "";
-		} else
-			return value.trim();
+		return properties;
 	}
-
-	private static HashMap<String, String> getconfigMap() {
-		if (null == propertyMap) {
-			init();
-		}
-		return propertyMap;
-	}
-
 	public static String getScreenOutDir() {
-		if (getPropValue("screen.outdir").equals("")) {
+		if (properties.getProperty("screen.outdir").equals("")) {
 			StringBuilder sb = new StringBuilder(System.getProperty("user.dir"));
 			sb.setLength(sb.indexOf(String.valueOf(File.separatorChar)) + 1);
 			sb.append("screens");
 			Log.info("Output directory is not set in config.properties and set to " + sb.toString());
 			return sb.toString();
 		} else {
-			return propertyMap.get("screen.outdir");
+			return properties.getProperty("screen.outdir");
 		}
 	}
 
 	public static String getDataDir() {
-		if (null == propertyMap.get("datafile.dir")) {
+		if (null == properties.getProperty("datafile.dir")) {
 			Log.error("Input Data directory is not set in config.properties. ");
 			return "data";
 		} else {
-			return propertyMap.get("datafile.dir");
+			return properties.getProperty("datafile.dir");
 		}
 	}
 	
 	public static String getUserName() {
-		if (null == propertyMap.get("emailid")) {
+		if (null == properties.getProperty("emailid")) {
 			Log.error("Input Email is not set in config.properties. ");
 			return "data";
 		} else {
-			return propertyMap.get("emailid");
+			return properties.getProperty("emailid");
 		}
-	}
-
-	public static void init() {
-		File infile = new File(filepath);
-		Properties prop = new Properties();
-		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(infile), "UTF-8"));
-			prop.load(br);
-		} catch (IOException e) {
-			Log.error(e.toString());
-		}
-		propertyMap = new HashMap<String, String>((Map) prop);
 	}
 
 	public static String getAppURL() {
-		if (null == getPropValue("app.url")) {
+		if (null == properties.getProperty("app.url")) {
 			Log.error("app.url is not set and it must be set.");
 			return "";
 		} else {
-			return getPropValue("app.url");
+			return properties.getProperty("app.url");
 		}
 	}
 
 	public static WebDriver getDriver() {
-		String browser = getPropValue("test.browser");
+		String browser = properties.getProperty("test.browser");
 
 		if (browser.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver", propertyMap.get("driver.path"));
+			System.setProperty("webdriver.chrome.driver", properties.getProperty("driver.path"));
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--start-maximized");
 			driver = new ChromeDriver(options);
-			driver.get(propertyMap.get("app.url"));
+			driver.get(properties.getProperty("app.url"));
 		} else if (browser.equalsIgnoreCase("firefox")) {
 
-			System.setProperty("webdriver.firefox.marionette", propertyMap.get("driver.path"));
+			System.setProperty("webdriver.firefox.marionette", properties.getProperty("driver.path"));
 			FirefoxOptions options = new FirefoxOptions();
 			driver = new FirefoxDriver(options);
 		} else if (browser.equalsIgnoreCase("edge")) {
-			System.setProperty("webdriver.edge.driver", propertyMap.get("driver.path"));
+			System.setProperty("webdriver.edge.driver", properties.getProperty("driver.path"));
 			EdgeOptions options = new EdgeOptions();
 			driver = new EdgeDriver();
 		} else if (browser.isEmpty()) {
@@ -142,13 +116,5 @@ public class Configaration {
 		props.setProperty("emailid", generatedString + "@gmail.com");
 		props.store(out, null);
 		out.close();
-	}
-
-	public static void main(String[] args) throws FileNotFoundException {
-		Configaration con = new Configaration();
-		for (Map.Entry<String, String> entry : Configaration.propertyMap.entrySet()) {
-			System.out.printf("Key : %s -- Value: %s %n", entry.getKey(), entry.getValue());
-
-		}
 	}
 }

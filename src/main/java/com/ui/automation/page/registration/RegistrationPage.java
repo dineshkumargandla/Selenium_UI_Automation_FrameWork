@@ -1,12 +1,12 @@
 package com.ui.automation.page.registration;
 
 import com.ui.automation.utill.AutomationBase;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RegistrationPage extends Configaration {
+public class RegistrationPage extends Configuration {
 
 	public RegistrationPage() throws Exception {
 		super();

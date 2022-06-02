@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.ui.automation.utill.AutomationBase;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
-public class SignInPage  extends Configaration {
+public class SignInPage  extends Configuration {
 
 	public SignInPage() throws Exception {
 		super();

@@ -11,9 +11,9 @@ import com.ui.automation.ReadXML.DataBean;
 import com.ui.automation.ReadXML.ReadXmlData;
 import com.ui.automation.page.registration.CreateAccountPage;
 import com.ui.automation.page.registration.RegistrationPage;
-import com.ui.automation.utill.Configaration;
+import com.ui.automation.utill.Configuration;
 
-public class RegistrationTest extends Configaration {
+public class RegistrationTest extends Configuration {
 
 	private static final String RegisterDataFile = "RegisterAUser.xml";
 	private DataBean inValidEmailId;
@@ -96,7 +96,7 @@ public class RegistrationTest extends Configaration {
 		Assert.assertEquals(brColor, "rgba(221, 249, 225, 1)");
 		Assert.assertTrue(rp.exsistingEmailIdErrorMessage().isDisplayed());
 		// Passing a new email ID
-		rp.emaiLTextBox(Configaration.getUserName());
+		rp.emaiLTextBox(Configuration.getUserName());
 		rp.createAccountButton();
 		Assert.assertTrue(rp.displayCreateAnAccountForm().isDisplayed());
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -156,7 +156,7 @@ public class RegistrationTest extends Configaration {
 	private void createAccountForm() throws InterruptedException {
 		createAccount.enterFirstName(firstName.getValue());
 		createAccount.enterLastName(lastName.getValue());
-		createAccount.enterEmail(Configaration.getUserName());
+		createAccount.enterEmail(Configuration.getUserName());
 		createAccount.enterPassword(password.getValue());
 		createAccount.selectDoBDate(dobDay.getValue());
 		createAccount.selectDoBMonth(dobMonth.getValue());
