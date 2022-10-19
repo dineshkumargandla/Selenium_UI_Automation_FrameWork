@@ -27,4 +27,4 @@ Steps to Execute from Eclipse
 
  ![PassedCases](https://user-images.githubusercontent.com/23456864/156869819-7607187a-aeed-4462-a4f6-f493f342ef74.png)
  
- Please contact dineshkumargandla@gmail.com for more information
+ Please contact dineshkumargandla@gmail.com for more information.
